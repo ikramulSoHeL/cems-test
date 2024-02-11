@@ -29,7 +29,7 @@ const Navbar = () => {
       direction={"row"}
       justifyContent="space-between"
       alignItems="center"
-      sx={{ borderBottom: "1px solid gray", paddingX: "30px" }}
+      sx={{ borderBottom: "1px solid gray", paddingX: "50px" }}
     >
       <Stack
         direction={"row"}
@@ -44,6 +44,7 @@ const Navbar = () => {
           <Tab label="Item Three" sx={{ textTransform: "capitalize" }} />
         </Tabs>
       </Stack>
+
       <Stack
         direction={"row"}
         justifyContent="right"

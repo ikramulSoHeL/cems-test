@@ -6,7 +6,8 @@ import FilterBar from "@/components/FilterBar";
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
 
-import { getProducts } from "@/apis/product.apis";
+import { getProducts } from "./api/product.apis";
+// import { getProducts } from "@/apis/product.apis";
 
 export default function Home() {
   const [layout, setLayout] = useState("grid");
@@ -52,8 +53,7 @@ export default function Home() {
 
     setFilteredProducts(tempProducts);
   }, [sortByName, sortByPrice, products]);
-
-  console.log("filteredProducts", filteredProducts);
+  // console.log("filteredProducts", filteredProducts);
 
   return (
     <main>

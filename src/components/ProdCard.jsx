@@ -12,10 +12,10 @@ const ProdCard = ({ data }) => {
   return (
     <Card
       sx={{
-        // maxWidth: 345,
         width: "100%",
         height: "100%",
         display: "flex",
+        alignItems: "center",
         flexDirection: "column",
         justifyContent: "space-between",
         gap: "10px",
@@ -24,7 +24,7 @@ const ProdCard = ({ data }) => {
         transition: "all 0.5s ease",
 
         "&:hover img": {
-          transform: "scale(1.02)",
+          transform: "scale(1.1)",
           transition: "all 0.5 s ease",
         },
       }}
@@ -33,7 +33,9 @@ const ProdCard = ({ data }) => {
     >
       <CardMedia
         sx={{
-          height: 300,
+          marginTop: "20px",
+          width: "90%",
+          height: "250px",
           objectFit: "contain",
           padding: "10px",
           transition: "transform 0.5s ease",

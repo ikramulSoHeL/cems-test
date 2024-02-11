@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { PRODUCTS_URL } from "../utils/urls";
+import { PRODUCTS_URL } from "../../utils/urls";
 
 export const getProducts = async () => {
   return axios({
