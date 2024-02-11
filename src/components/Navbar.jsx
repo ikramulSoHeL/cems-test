@@ -29,7 +29,11 @@ const Navbar = () => {
       direction={"row"}
       justifyContent="space-between"
       alignItems="center"
-      sx={{ borderBottom: "1px solid gray", paddingX: "50px" }}
+      sx={{
+        borderBottom: "1px solid gray",
+        paddingX: { xs: "10px", md: "50px" },
+        paddingY: { xs: "10px", md: "0" },
+      }}
     >
       <Stack
         direction={"row"}
@@ -38,7 +42,14 @@ const Navbar = () => {
         spacing={2}
       >
         <Image src={logo} sx={{ width: "60px", height: "auto" }} alt="" />
-        <Tabs value={value} onChange={handleChange}>
+        <Tabs
+          value={value}
+          onChange={handleChange}
+          // hide the tabs on tablet and mobile
+          sx={{
+            display: { xs: "none", md: "flex" },
+          }}
+        >
           <Tab label="Item One" sx={{ textTransform: "capitalize" }} />
           <Tab label="Item Two" sx={{ textTransform: "capitalize" }} />
           <Tab label="Item Three" sx={{ textTransform: "capitalize" }} />

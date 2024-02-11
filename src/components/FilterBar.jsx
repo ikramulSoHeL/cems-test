@@ -32,11 +32,11 @@ const FilterBar = ({
       justifyContent="space-between"
       alignItems="center"
       sx={{
-        marginX: 20,
+        marginX: { xs: "20px", md: "160px" },
         marginY: 5,
         border: "1px solid gray",
         borderRadius: "5px",
-        padding: "10px",
+        padding: "5px",
         boxShadow: "0 0 10px rgba(0, 0, 0, 0.3)",
       }}
     >
@@ -70,12 +70,27 @@ const FilterBar = ({
         alignItems="center"
         sx={{}}
       >
-        <FormControl sx={{ m: 1, minWidth: 120 }}>
+        <FormControl
+          sx={{
+            m: 1,
+            minWidth: {
+              xs: 90,
+              md: 200,
+            },
+          }}
+        >
           <Select
             value={sortByName}
             onChange={handleSortByName}
             displayEmpty
             inputProps={{ "aria-label": "Without label" }}
+            sx={{
+              minWidth: {
+                xs: 70,
+                md: 200,
+              },
+              maxHeight: 40,
+            }}
           >
             <MenuItem value="">
               <em>Sort by name</em>
@@ -85,12 +100,27 @@ const FilterBar = ({
           </Select>
         </FormControl>
 
-        <FormControl sx={{ m: 1, minWidth: 120 }}>
+        <FormControl
+          sx={{
+            m: 1,
+            minWidth: {
+              xs: 90,
+              md: 200,
+            },
+          }}
+        >
           <Select
             value={sortByPrice}
             onChange={handleSortByPrice}
             displayEmpty
             inputProps={{ "aria-label": "Without label" }}
+            sx={{
+              minWidth: {
+                xs: 70,
+                md: 200,
+              },
+              maxHeight: 40,
+            }}
           >
             <MenuItem value="">
               <em>Sort by price</em>

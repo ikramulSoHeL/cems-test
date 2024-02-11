@@ -13,7 +13,7 @@ const ProdCardFlat = ({ data }) => {
       style={{
         width: "100%",
         display: "grid",
-        gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+        gridTemplateColumns: { xs: "1fr", md: "1fr 2fr 1fr" },
         gap: "30px",
         padding: "10px",
         border: "1px solid gray",
@@ -21,6 +21,7 @@ const ProdCardFlat = ({ data }) => {
         cursor: "pointer",
         position: "relative",
         transition: "transform 0.3s ease",
+
         "&:hover": {
           boxShadow: "0 0 10px rgba(0, 0, 0, 0.6)",
           transform: "scale(1.05)",
@@ -50,7 +51,7 @@ const ProdCardFlat = ({ data }) => {
               left: 0,
               right: 0,
               bottom: 0,
-              backgroundColor: "rgba(0, 0, 0, 0.5)", // Semi-transparent layer
+              backgroundColor: "rgba(0, 0, 0, 0.5)",
               display: "flex",
               flexDirection: "column",
               justifyContent: "center",

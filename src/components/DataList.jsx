@@ -15,7 +15,7 @@ const DataList = ({ data }) => {
     <Box>
       <Grid
         container
-        px={20}
+        px={{ xs: "20px", md: "160px" }}
         style={{
           width: "100%",
           display: "flex",
