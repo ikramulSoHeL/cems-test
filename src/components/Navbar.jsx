@@ -45,14 +45,14 @@ const Navbar = () => {
         <Tabs
           value={value}
           onChange={handleChange}
-          // hide the tabs on tablet and mobile
           sx={{
             display: { xs: "none", md: "flex" },
           }}
         >
-          <Tab label="Item One" sx={{ textTransform: "capitalize" }} />
-          <Tab label="Item Two" sx={{ textTransform: "capitalize" }} />
-          <Tab label="Item Three" sx={{ textTransform: "capitalize" }} />
+          <Tab label="Dashboard" sx={{ textTransform: "capitalize" }} />
+          <Tab label="Team" sx={{ textTransform: "capitalize" }} />
+          <Tab label="Projects" sx={{ textTransform: "capitalize" }} />
+          <Tab label="Calender" sx={{ textTransform: "capitalize" }} />
         </Tabs>
       </Stack>
 

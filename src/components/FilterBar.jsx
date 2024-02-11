@@ -33,10 +33,10 @@ const FilterBar = ({
       alignItems="center"
       sx={{
         marginX: { xs: "20px", md: "160px" },
-        marginY: 5,
+        marginY: { xs: "20px", md: "30px" },
         border: "1px solid gray",
         borderRadius: "5px",
-        padding: "5px",
+        paddingX: { xs: "10px", md: "20px" },
         boxShadow: "0 0 10px rgba(0, 0, 0, 0.3)",
       }}
     >
@@ -48,17 +48,17 @@ const FilterBar = ({
         spacing={2}
       >
         {layout === "grid" ? (
+          <ViewList
+            style={{ fontSize: "20pt", cursor: "pointer" }}
+            onClick={() => handleGrid({ s: layout })}
+          />
+        ) : (
           <GridView
             style={{
               fontSize: "20pt",
               cursor: "pointer",
               color: "black",
             }}
-            onClick={() => handleGrid({ s: layout })}
-          />
-        ) : (
-          <ViewList
-            style={{ fontSize: "20pt", cursor: "pointer" }}
             onClick={() => handleGrid({ s: layout })}
           />
         )}

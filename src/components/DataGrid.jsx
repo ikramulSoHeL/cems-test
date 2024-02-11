@@ -21,6 +21,7 @@ const DataGrid = ({ data }) => {
     <Box
       sx={{
         flexGrow: 1,
+        width: "100%",
         paddingX: { xs: "20px", md: "160px" },
       }}
     >
@@ -28,10 +29,7 @@ const DataGrid = ({ data }) => {
         style={{
           width: "100%",
           display: "grid",
-          gridTemplateColumns: {
-            xs: "repeat(auto-fit, minmax(100px, 1fr))",
-            md: "repeat(auto-fit, minmax(120px, 1fr))",
-          },
+          gridTemplateColumns: "repeat(auto-fit, minmax(350px, 1fr))",
           gap: "20px",
         }}
       >
