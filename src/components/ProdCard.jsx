@@ -11,23 +11,7 @@ const ProdCard = ({ data }) => {
 
   return (
     <Card
-      sx={{
-        width: "100%",
-        height: "100%",
-        display: "flex",
-        alignItems: "center",
-        flexDirection: "column",
-        justifyContent: "space-between",
-        gap: "10px",
-        cursor: "pointer",
-        position: "relative",
-        transition: "all 0.5s ease",
-
-        "&:hover img": {
-          transform: "scale(1.1)",
-          transition: "all 0.5 s ease",
-        },
-      }}
+      className="w-full h-full flex flex-col items-center justify-between gap-10 cursor-pointer relative transition-all ease-in-out duration-500"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -39,57 +23,43 @@ const ProdCard = ({ data }) => {
           objectFit: "contain",
           padding: "10px",
           transition: "transform 0.5s ease",
+
+          transform: isHovered ? "scale(1.1)" : "scale(1)",
         }}
         component="img"
         image={data?.image}
         title="green iguana"
       />
-      {isHovered && (
-        <div
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
 
-            width: "100%",
-            height: "100%",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-            background: "rgba(0, 0, 0, 0.2)",
-            transition: "all 0.5s ease",
-          }}
-        >
-          <Button
-            variant="contained"
-            color="primary"
-            style={{ background: "green" }}
-          >
+      {isHovered && (
+        <div className="absolute top-0 left-0 right-0 bottom-0 w-full h-full flex flex-col justify-center items-center bg-black bg-opacity-20 transition-all duration-500 ease-in-out">
+          <Button variant="contained" color="primary" className="bg-green">
             Buy Now
           </Button>
         </div>
       )}
 
-      <CardContent>
-        <Typography gutterBottom variant="h6" component="div">
-          {data?.title}
-        </Typography>
+      <CardContent className="flex flex-col justify-between h-full">
+        <div>
+          <Typography gutterBottom variant="h6" component="div">
+            {data?.title}
+          </Typography>
 
-        <Typography variant="body2" color="text.secondary">
-          {data?.description.slice(0, 100)}...
-        </Typography>
+          <Typography variant="body2" color="text-secondary">
+            {data?.description.slice(0, 100)}...
+          </Typography>
+        </div>
 
-        <Typography variant="h4" color="green">
-          $ {data?.price}
-        </Typography>
+        <div className="flex justify-between items-end">
+          <Typography variant="h4" className="text-green">
+            $ {data?.price}
+          </Typography>
+          <CardActions>
+            <Button size="small">Share</Button>
+            <Button size="small">Learn More</Button>
+          </CardActions>
+        </div>
       </CardContent>
-      <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
-      </CardActions>
     </Card>
   );
 };

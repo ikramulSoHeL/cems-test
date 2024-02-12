@@ -20,66 +20,21 @@ const DataGrid = ({ data, loading }) => {
   return (
     <>
       {loading ? (
-        <Box
-          sx={{
-            width: "100%",
-            height: "50vh",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
+        <div className="w-full h-50vh flex justify-center items-center">
           Loading...
-        </Box>
+        </div>
       ) : (
-        <Box
-          sx={{
-            flexGrow: 1,
-            width: "100%",
-            paddingX: { xs: "20px", md: "160px" },
-          }}
-        >
-          <Grid
-            style={{
-              width: "100%",
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(350px, 1fr))",
-              gap: "20px",
-            }}
-          >
-            {data.slice((page - 1) * 10, page * 10).map((item, index) => {
-              return (
-                <Grid
-                  item
-                  xs={3}
-                  key={index}
-                  style={{
-                    width: "100%",
-                    border: "1px solid gray",
-                    boxShadow: "0 0 10px rgba(0, 0, 0, 0.3)",
-                    borderRadius: "5px",
+        <div className="flex-grow w-full px-6 py-4 lg:px-40">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+            {data.slice((page - 1) * 10, page * 10).map((item, index) => (
+              <ProdCard data={item} key={index} />
+            ))}
+          </div>
 
-                    "&:hover": {
-                      boxShadow: "0 0 10px rgba(0, 0, 0, 0.6)",
-                      transform: "scale(1.05)",
-                      backgroundColor: "red",
-                    },
-                  }}
-                >
-                  <ProdCard data={item} />
-                </Grid>
-              );
-            })}
-          </Grid>
-
-          <Stack
-            justifyContent={"center"}
-            alignItems={"center"}
-            sx={{ margin: "40px" }}
-          >
+          <div className="flex justify-center items-center mt-4 md:mt-8">
             <Pagination count={pageCount} page={page} onChange={handleChange} />
-          </Stack>
-        </Box>
+          </div>
+        </div>
       )}
     </>
   );

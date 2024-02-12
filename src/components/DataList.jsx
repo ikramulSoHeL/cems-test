@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 import { Box, Pagination, Stack } from "@mui/material";
-import Grid from "@mui/material/Grid";
 import ProdCardFlat from "./ProdCardFlat";
 
 const DataList = ({ data, loading }) => {
@@ -14,42 +13,21 @@ const DataList = ({ data, loading }) => {
   return (
     <>
       {loading ? (
-        <Box
-          sx={{
-            width: "100%",
-            height: "50vh",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
+        <div className="w-full h-50vh flex justify-center items-center">
           Loading...
-        </Box>
+        </div>
       ) : (
-        <Box>
-          <Grid
-            container
-            px={{ xs: "20px", md: "160px" }}
-            style={{
-              width: "100%",
-              display: "flex",
-              flexDirection: "column",
-              gap: "20px",
-            }}
-          >
-            {data.slice((page - 1) * 10, page * 10).map((item, index) => {
-              return <ProdCardFlat data={item} />;
-            })}
-          </Grid>
+        <div className="flex-grow w-full px-6 py-4 lg:px-40">
+          <div className="grid gap-5">
+            {data.slice((page - 1) * 10, page * 10).map((item, index) => (
+              <ProdCardFlat data={item} key={index} />
+            ))}
+          </div>
 
-          <Stack
-            justifyContent={"center"}
-            alignItems={"center"}
-            sx={{ margin: "40px" }}
-          >
+          <div className="flex justify-center items-center mt-4 md:mt-8">
             <Pagination count={pageCount} page={page} onChange={handleChange} />
-          </Stack>
-        </Box>
+          </div>
+        </div>
       )}
     </>
   );

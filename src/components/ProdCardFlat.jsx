@@ -9,32 +9,7 @@ const ProdCardFlat = ({ data }) => {
 
   return (
     <Card
-      container
-      sx={{
-        width: "100%",
-        display: "flex",
-        flexDirection: { xs: "column", md: "row" },
-        alignItems: { xs: "flex-start", md: "center" },
-        justifyContent: { xs: "flex-start", md: "space-between" },
-        gap: "10px",
-
-        padding: "10px",
-        border: "1px solid gray",
-        borderRadius: "5px",
-        cursor: "pointer",
-        position: "relative",
-        transition: "transform 0.5s ease",
-
-        "&:hover": {
-          boxShadow: "0 0 10px rgba(0, 0, 0, 0.6)",
-          transition: "transform 0.5s ease",
-
-          "& img": {
-            transform: "scale(1.1)",
-            transition: "all 0.5 s ease",
-          },
-        },
-      }}
+      className="w-full flex flex-col md:flex-row items-center justify-between gap-10 cursor-pointer relative transition-transform duration-500 p-10 border border-gray-300 rounded-md hover:shadow-md"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -60,61 +35,30 @@ const ProdCardFlat = ({ data }) => {
         />
       </Box>
 
-      <Box
-        sx={{
-          width: "100%",
-          height: "100%",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: { xs: "flex-start", md: "center" },
-          gap: "10px",
-        }}
-      >
+      <div className="w-full h-full flex flex-col items-start md:items-center gap-2">
         <Typography gutterBottom variant="h6" component="div">
           {data?.title}
         </Typography>
 
-        <Typography variant="body2" color="text.secondary">
+        <Typography variant="body2" color="text-secondary">
           {data?.description.slice(0, 100)}...
         </Typography>
-      </Box>
+      </div>
 
-      <Box
-        sx={{
-          width: "100%",
-          height: "100%",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: { xs: "flex-start", md: "flex-end" },
-          justifyContent: "center",
-          gap: "10px",
-        }}
-      >
-        <Typography gutterBottom variant="h6" component="div" color="red">
+      <div className="w-full h-full flex flex-col items-start md:items-end justify-center gap-10">
+        <Typography
+          gutterBottom
+          variant="h6"
+          component="div"
+          className="text-red-500"
+        >
           $ {data?.price}
         </Typography>
-      </Box>
+      </div>
 
       {isHovered && (
-        <div
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            backgroundColor: "rgba(0, 0, 0, 0.2)",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <Button
-            variant="contained"
-            color="primary"
-            style={{ background: "green" }}
-          >
+        <div className="absolute top-0 left-0 right-0 bottom-0 bg-black bg-opacity-20 flex flex-col justify-center items-center">
+          <Button variant="contained" color="primary" className="bg-green-500">
             Buy Now
           </Button>
         </div>

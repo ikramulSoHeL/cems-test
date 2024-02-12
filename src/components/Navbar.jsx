@@ -37,55 +37,19 @@ const Navbar = () => {
   };
 
   return (
-    <Stack
-      direction={"row"}
-      justifyContent="space-between"
-      alignItems="center"
-      sx={{
-        borderBottom: "1px solid var(--blackShade2)",
-        paddingX: { xs: "10px", md: "50px" },
-        paddingY: { xs: "10px", md: "0" },
-      }}
-    >
-      <Stack
-        direction={"row"}
-        justifyContent="left"
-        alignItems="center"
-        spacing={2}
-      >
+    <div className="flex justify-between items-center border-b border-blackShade2 px-10 md:px-10 py-2 md:py-0">
+      <div className="flex items-center space-x-2">
         <Image src={logo} sx={{ width: "60px", height: "auto" }} alt="" />
-        <Tabs
-          value={value}
-          onChange={handleChange}
-          sx={{
-            display: { xs: "none", md: "flex" },
-          }}
-        >
-          <Tab
-            label="Dashboard"
-            sx={{ textTransform: "capitalize", color: "var(--blackShade1)" }}
-          />
-          <Tab
-            label="Team"
-            sx={{ textTransform: "capitalize", color: "var(--blackShade1)" }}
-          />
-          <Tab
-            label="Projects"
-            sx={{ textTransform: "capitalize", color: "var(--blackShade1)" }}
-          />
-          <Tab
-            label="Calender"
-            sx={{ textTransform: "capitalize", color: "var(--blackShade1)" }}
-          />
-        </Tabs>
-      </Stack>
 
-      <Stack
-        direction={"row"}
-        justifyContent="right"
-        alignItems="center"
-        spacing={2}
-      >
+        <Tabs value={value} onChange={handleChange} className="hidden md:flex">
+          <Tab label="Dashboard" className="capitalize text-blackShade1" />
+          <Tab label="Team" className="capitalize text-blackShade1" />
+          <Tab label="Projects" className="capitalize text-blackShade1" />
+          <Tab label="Calendar" className="capitalize text-blackShade1" />
+        </Tabs>
+      </div>
+
+      <div className="flex items-center space-x-2">
         <div>
           <Button
             aria-describedby={id}
@@ -201,9 +165,9 @@ const Navbar = () => {
 
         <NotificationsNoneIcon />
 
-        <Avatar alt="Remy Sharp" src="" sx={{ width: 24, height: 24 }} />
-      </Stack>
-    </Stack>
+        <Avatar alt="Remy Sharp" src="" className="w-24 h-8 w-8" />
+      </div>
+    </div>
   );
 };
 
