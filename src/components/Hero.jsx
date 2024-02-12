@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import React from "react";
 
 const Hero = () => {
@@ -10,7 +10,9 @@ const Hero = () => {
         py: { xs: "30px", md: "50px" },
       }}
     >
-      Dashboard
+      <Typography variant="h4" sx={{ fontWeight: "bold" }}>
+        Dashboard
+      </Typography>
     </Box>
   );
 };
