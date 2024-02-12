@@ -122,14 +122,14 @@ const Navbar = () => {
                   gap: "10px",
                 }}
               >
-                <Typography>Thank you for your feedback</Typography>
+                <SentimentSatisfiedIcon />
+                <Typography variant="h6" color="black">
+                  Thank you for your feedback
+                </Typography>
 
-                <Box>
-                  <SentimentSatisfiedIcon />
-                  <SentimentSatisfiedIcon />
-                  <SentimentSatisfiedIcon />
-                  <SentimentSatisfiedIcon />
-                </Box>
+                <Typography variant="body1">
+                  We will get back to you soon
+                </Typography>
               </Box>
             ) : (
               <Box

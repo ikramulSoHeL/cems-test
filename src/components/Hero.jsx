@@ -3,7 +3,13 @@ import React from "react";
 
 const Hero = () => {
   return (
-    <Box px={20} py={10} sx={{ borderBottom: "1px solid var(--blackShade2)" }}>
+    <Box
+      sx={{
+        borderBottom: "1px solid var(--blackShade2)",
+        px: { xs: "50px", md: "170px" },
+        py: { xs: "30px", md: "50px" },
+      }}
+    >
       Dashboard
     </Box>
   );
