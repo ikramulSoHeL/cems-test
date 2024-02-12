@@ -10,28 +10,43 @@ const ProdCardFlat = ({ data }) => {
   return (
     <Card
       container
-      style={{
+      sx={{
         width: "100%",
-        display: "grid",
-        gridTemplateColumns: { xs: "1fr", md: "1fr 2fr 1fr" },
-        gap: "30px",
+        display: "flex",
+        flexDirection: { xs: "column", md: "row" },
+        alignItems: { xs: "flex-start", md: "center" },
+        justifyContent: { xs: "flex-start", md: "space-between" },
+        gap: "10px",
+
         padding: "10px",
         border: "1px solid gray",
         borderRadius: "5px",
         cursor: "pointer",
         position: "relative",
-        transition: "transform 0.3s ease",
+        transition: "transform 0.5s ease",
 
         "&:hover": {
           boxShadow: "0 0 10px rgba(0, 0, 0, 0.6)",
-          transform: "scale(1.05)",
-          backgroundColor: "red",
+          transition: "transform 0.5s ease",
+
+          "& img": {
+            transform: "scale(1.1)",
+            transition: "all 0.5 s ease",
+          },
         },
       }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <Box sx={{ width: "100%", height: "150px" }}>
+      <Box
+        sx={{
+          width: "100%",
+          height: { xs: "200px", md: "150px" },
+          display: "flex",
+          alignItems: { xs: "center", md: "flex-start" },
+          justifyContent: { xs: "center", md: "flex-start" },
+        }}
+      >
         <CardMedia
           sx={{
             height: 150,
@@ -43,30 +58,6 @@ const ProdCardFlat = ({ data }) => {
           image={data?.image}
           title="green iguana"
         />
-        {isHovered && (
-          <div
-            style={{
-              position: "absolute",
-              top: 0,
-              left: 0,
-              right: 0,
-              bottom: 0,
-              backgroundColor: "rgba(0, 0, 0, 0.5)",
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            <Button
-              variant="contained"
-              color="primary"
-              style={{ background: "green" }}
-            >
-              Buy Now
-            </Button>
-          </div>
-        )}
       </Box>
 
       <Box
@@ -75,7 +66,7 @@ const ProdCardFlat = ({ data }) => {
           height: "100%",
           display: "flex",
           flexDirection: "column",
-          alignItems: "center",
+          alignItems: { xs: "flex-start", md: "center" },
           gap: "10px",
         }}
       >
@@ -94,7 +85,7 @@ const ProdCardFlat = ({ data }) => {
           height: "100%",
           display: "flex",
           flexDirection: "column",
-          alignItems: "flex-end",
+          alignItems: { xs: "flex-start", md: "flex-end" },
           justifyContent: "center",
           gap: "10px",
         }}
@@ -103,6 +94,31 @@ const ProdCardFlat = ({ data }) => {
           $ {data?.price}
         </Typography>
       </Box>
+
+      {isHovered && (
+        <div
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: "rgba(0, 0, 0, 0.2)",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <Button
+            variant="contained"
+            color="primary"
+            style={{ background: "green" }}
+          >
+            Buy Now
+          </Button>
+        </div>
+      )}
     </Card>
   );
 };

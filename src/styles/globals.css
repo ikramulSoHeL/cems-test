@@ -2,19 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 :root {
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-  }
-}
-
 body {
+  --black: #09090b;
+  --blackShade1: #71717a;
+  --blackShade2: #e5e7eb;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.css-r4kerh-MuiButtonBase-root-MuiTab-root.Mui-selected {
+  color: var(--black) !important;
+}
+
+.css-1aquho2-MuiTabs-indicator {
+  background-color: var(--black) !important;
 }

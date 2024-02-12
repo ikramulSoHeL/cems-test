@@ -1,14 +1,16 @@
 import { Avatar, Box, Stack, Tab, Tabs, TextareaAutosize } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import Popover from "@mui/material/Popover";
 import logo from "../assets/logo.svg";
 import Image from "next/image";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
+import SentimentSatisfiedIcon from "@mui/icons-material/SentimentSatisfied";
+
 const Navbar = () => {
-  const [value, setValue] = React.useState(0);
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [value, setValue] = useState(0);
+  const [anchorEl, setAnchorEl] = useState(null);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -24,13 +26,23 @@ const Navbar = () => {
 
   const open = Boolean(anchorEl);
   const id = open ? "simple-popover" : undefined;
+
+  const [sendSatatus, setSendSatatus] = useState(false);
+  const handleSendSatatus = () => {
+    setSendSatatus(!sendSatatus);
+
+    setTimeout(() => {
+      setSendSatatus(false);
+    }, 5000);
+  };
+
   return (
     <Stack
       direction={"row"}
       justifyContent="space-between"
       alignItems="center"
       sx={{
-        borderBottom: "1px solid gray",
+        borderBottom: "1px solid var(--blackShade2)",
         paddingX: { xs: "10px", md: "50px" },
         paddingY: { xs: "10px", md: "0" },
       }}
@@ -49,10 +61,22 @@ const Navbar = () => {
             display: { xs: "none", md: "flex" },
           }}
         >
-          <Tab label="Dashboard" sx={{ textTransform: "capitalize" }} />
-          <Tab label="Team" sx={{ textTransform: "capitalize" }} />
-          <Tab label="Projects" sx={{ textTransform: "capitalize" }} />
-          <Tab label="Calender" sx={{ textTransform: "capitalize" }} />
+          <Tab
+            label="Dashboard"
+            sx={{ textTransform: "capitalize", color: "var(--blackShade1)" }}
+          />
+          <Tab
+            label="Team"
+            sx={{ textTransform: "capitalize", color: "var(--blackShade1)" }}
+          />
+          <Tab
+            label="Projects"
+            sx={{ textTransform: "capitalize", color: "var(--blackShade1)" }}
+          />
+          <Tab
+            label="Calender"
+            sx={{ textTransform: "capitalize", color: "var(--blackShade1)" }}
+          />
         </Tabs>
       </Stack>
 
@@ -68,7 +92,7 @@ const Navbar = () => {
             variant="outlined"
             onClick={handleClick}
           >
-            Open Popover
+            Feedback
           </Button>
 
           <Popover
@@ -85,19 +109,98 @@ const Navbar = () => {
               horizontal: "center",
             }}
           >
-            <Box sx={{ p: 2, width: "250px" }}>
-              <TextareaAutosize
-                minRows={3}
-                maxRows={3}
-                style={{ width: "100%" }}
-                aria-label="maximum height"
-                placeholder="Maximum 4 rows"
-                defaultValue=""
-              />
-            </Box>
+            {sendSatatus ? (
+              <Box
+                sx={{
+                  padding: "10px",
+                  height: "200px",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+
+                  gap: "10px",
+                }}
+              >
+                <Typography>Thank you for your feedback</Typography>
+
+                <Box>
+                  <SentimentSatisfiedIcon />
+                  <SentimentSatisfiedIcon />
+                  <SentimentSatisfiedIcon />
+                  <SentimentSatisfiedIcon />
+                </Box>
+              </Box>
+            ) : (
+              <Box
+                sx={{
+                  width: "300px",
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "10px",
+                }}
+              >
+                <TextareaAutosize
+                  minRows={3}
+                  maxRows={3}
+                  style={{
+                    width: "93%",
+                    resize: "none",
+                    border: ".5px solid var(--blackShade2)",
+                    borderRadius: "5px",
+                    padding: "10px",
+                    margin: "10px",
+                    required: "true",
+
+                    "&:focus": {
+                      border: ".5px solid blue",
+                    },
+                  }}
+                  aria-label="maximum height"
+                  placeholder="Maximum 4 rows"
+                  defaultValue=""
+                  onFocus={(e) => {
+                    e.target.style.border = ".5px solid green";
+                    e.target.style.outline = "none";
+                  }}
+                />
+
+                <Box
+                  sx={{
+                    padding: "10px",
+                    width: "100%",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    backgroundColor: "lightgray",
+                  }}
+                >
+                  <Box>
+                    <SentimentSatisfiedIcon />
+                    <SentimentSatisfiedIcon />
+                    <SentimentSatisfiedIcon />
+                    <SentimentSatisfiedIcon />
+                  </Box>
+
+                  <Button
+                    variant="contained"
+                    sx={{
+                      backgroundColor: "black",
+                      color: "white",
+                      marginTop: "5px",
+                    }}
+                    onClick={handleSendSatatus}
+                  >
+                    Send
+                  </Button>
+                </Box>
+              </Box>
+            )}
           </Popover>
         </div>
+
         <NotificationsNoneIcon />
+
         <Avatar alt="Remy Sharp" src="" sx={{ width: 24, height: 24 }} />
       </Stack>
     </Stack>

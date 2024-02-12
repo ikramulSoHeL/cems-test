@@ -34,7 +34,7 @@ const FilterBar = ({
       sx={{
         marginX: { xs: "20px", md: "160px" },
         marginY: { xs: "20px", md: "30px" },
-        border: "1px solid gray",
+        border: "1px solid var(--blackShade2)",
         borderRadius: "5px",
         paddingX: { xs: "10px", md: "20px" },
         boxShadow: "0 0 10px rgba(0, 0, 0, 0.3)",

@@ -59,7 +59,7 @@ const ProdCard = ({ data }) => {
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
-            background: "rgba(0, 0, 0, 0.5)",
+            background: "rgba(0, 0, 0, 0.2)",
             transition: "all 0.5s ease",
           }}
         >
