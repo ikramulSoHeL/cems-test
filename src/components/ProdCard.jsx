@@ -33,7 +33,7 @@ const ProdCard = ({ data }) => {
 
       {isHovered && (
         <div className="absolute top-0 left-0 right-0 bottom-0 w-full h-full flex flex-col justify-center items-center bg-black bg-opacity-20 transition-all duration-500 ease-in-out">
-          <Button variant="contained" color="primary" className="bg-green">
+          <Button variant="contained" className="bg-green-500">
             Buy Now
           </Button>
         </div>
