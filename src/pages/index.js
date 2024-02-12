@@ -10,13 +10,21 @@ import { getProducts } from "./api/product.apis";
 // import { getProducts } from "@/apis/product.apis";
 
 export default function Home() {
+  const [loading, setLoading] = useState(false);
   const [layout, setLayout] = useState("grid");
 
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    getProducts().then((res) => {
-      setProducts(res.data);
-    });
+    setLoading(true);
+    getProducts()
+      .then((res) => {
+        setProducts(res.data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        setLoading(false);
+      });
   }, []);
   // console.log("products", products);
 
@@ -69,9 +77,9 @@ export default function Home() {
       />
 
       {layout === "grid" ? (
-        <DataGrid data={filteredProducts} />
+        <DataGrid data={filteredProducts} loading={loading} />
       ) : (
-        <DataList data={filteredProducts} />
+        <DataList data={filteredProducts} loading={loading} />
       )}
     </main>
   );
